@@ -305,25 +305,36 @@ topic6/
 
 ### 📄 deploy.yml
 ```yaml
-name: Deploy Static HTML
+name: Hello 
 
-on:
+on: 
   push:
-    branches: [ "main" ]
+    branches: ["main"] 
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
-  deploy:
+  hello:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
       - name: Show build message
-        run: echo "Building and deploying HTML page!"
-
-      - name: Display HTML content
+        run: echo "Bulding & Deploying HTML page"
+      - name: Display HTML page
         run: cat index.html
+      - name: Setup pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact 
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      - name: Deploy to github pages
+        uses: actions/deploy-pages@v4  
 ```
 
 ### ⚡ Commands
