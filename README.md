@@ -1,5 +1,4 @@
-# 🚀 DevOps Practical Exam — Complete Guide
-**Avinash Avhale | Roll No: 24 | TY9-A | SAKEC**
+
 
 ---
 
